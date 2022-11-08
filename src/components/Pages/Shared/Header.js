@@ -23,7 +23,7 @@ const Header = () => {
                                     <li><Link>Review Service</Link></li>
                                 </ul>
                             </li>
-                            <li><Link>Add Service</Link></li>
+                            <li><Link Link to="/AddService">Add Service</Link></li>
                             <li><Link>Blog</Link></li>
                         </ul>
                     </div>
@@ -48,7 +48,7 @@ const Header = () => {
                             </ul>
                         </li>
                         <li><Link>Blog</Link></li>
-                        <li><Link>Add Service</Link></li>
+                        <li><Link to="/AddService">Add Service</Link></li>
                     </ul>
                 </div>
                 <div className="navbar-end bg-warning">
