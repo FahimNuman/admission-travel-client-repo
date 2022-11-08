@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import image from '../../assets/image/logo (1).png';
+import { AuthContext } from '../../Contexts/UseContext';
 
-const Header = () => {
+const Header = () => 
+
+    {
+        const { user, logOut } = useContext(AuthContext);
+        console.log('context', user);
+
+        const handleSignOut = () => {
+            logOut()
+                .then(() => { })
+                .catch(error => console.error(error));
+        }
+
     return (
         <div>
             <div className="navbar bg-warning text-warning-content">
@@ -48,11 +60,20 @@ const Header = () => {
                             </ul>
                         </li>
                         <li><Link>Blog</Link></li>
-                        <li><Link to="/AddService">Add Service</Link></li>
+                        
                     </ul>
                 </div>
-                <div className="navbar-end bg-warning">
-                    <Link className="btn bg-warning">Login</Link>
+                
+                <div>{user?.email && <span>{user.email}</span>}
+                    {
+                        user?.email ?
+                            <> <button className='bg-primary'><Link to="/AddService">Add Service</Link></button>
+                                <button onClick={handleSignOut} className="btn btn-sm">Log out</button></>
+                       
+                            : <Link to='/login'>
+                                <button className='btn btn-sm'>Log In</button>
+                            </Link> 
+                    }
                 </div>
             </div>
         </div>

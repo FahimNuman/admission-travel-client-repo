@@ -31,7 +31,7 @@ const AddService = () => {
     };
     
     return (
-        <div>
+        <div  className='my-20 py-20'>
             <form onSubmit={handleAddService}>
                 
                 <div className='grid grid-cols-1 lg:grid-cols-1 gap-4'>
