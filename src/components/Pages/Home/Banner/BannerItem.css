@@ -1,0 +1,19 @@
+.carousel-img:after {
+    content:'';
+    position:absolute;
+    left:0; 
+    top:0;
+    width:1000%; 
+    height:100%;
+    border-radius: 12px;
+    display:inline-block;
+    
+  }
+    .carousel-item {
+      box-sizing: content-box;
+      display: flex;
+      flex: none;
+      scroll-snap-align: start;
+      flex-wrap: nowrap;
+      flex-direction: column;
+    }
