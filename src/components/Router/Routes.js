@@ -6,6 +6,8 @@ import AddService from "../Pages/Service/AddService";
 import Service from "../Pages/Service/Service";
 import ServiceAll from "../Pages/Service/ServiceAll";
 import ServiceDetails from "../Pages/Service/ServiceDetails";
+import Login from "../Pages/SingIn/Login";
+import SingUp from "../Pages/SingIn/SingUp";
 
 const router = createBrowserRouter([
 
@@ -42,6 +44,14 @@ const router = createBrowserRouter([
                 path:'/AddService',
                 element:<AddService></AddService>
                 
+            },
+            {
+                path:'/login',
+                element:<Login></Login>
+            },
+            {
+                path:'/singUp',
+                element:<SingUp></SingUp>
             }
         ]
     }
