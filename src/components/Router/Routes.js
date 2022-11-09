@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Main from "../Layout/Main";
 import ErrorPage from "../Pages/Error/ErrorPage";
 import Home from "../Pages/Home/Home";
+import Review from "../Pages/Review/Review";
 import AddService from "../Pages/Service/AddService";
 import Service from "../Pages/Service/Service";
 import ServiceAll from "../Pages/Service/ServiceAll";
@@ -31,6 +32,7 @@ const router = createBrowserRouter([
                 path:'/ServiceAll',
                 element:<ServiceAll></ServiceAll>,
                 loader: () => fetch(`http://localhost:5000/service`)
+                
             }
             ,
             {
@@ -52,6 +54,11 @@ const router = createBrowserRouter([
             {
                 path:'/singUp',
                 element:<SingUp></SingUp>
+            },
+            {
+                path:'/reviews',
+                element:<Review></Review>,
+                
             }
         ]
     }

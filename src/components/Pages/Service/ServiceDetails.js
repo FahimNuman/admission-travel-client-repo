@@ -1,8 +1,59 @@
-import React from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
+import  { AuthContext } from '../../Contexts/UseContext';
+import Review from '../Review/Review';
 
 const ServiceDetails = () => {
+    
+    const {user} = useContext(AuthContext);
+
+    const ref = useRef(null);
     const serviceDetails = useLoaderData();
+    const {_id}=serviceDetails;
+    console.log(_id);
+    const handleAddReview = event =>{
+        const review = ref.current.value;
+        const email=user?.email || 'undefind';
+        const displayName =user?.displayName|| 'undefind';
+        const photoURL = user?.photoURL||'undefind';
+
+        const obj = {
+            displayName: displayName,
+            email: email,
+            photoURL: photoURL,
+            review:review,
+            serviceID: _id,
+        };
+        fetch('http://localhost:5000/review', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(obj),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(data);
+                if (data.acknowledged) {
+                    // sT(true)
+                    alert('Successful');
+                    ref.current.value = '';
+
+                }
+            })
+
+
+    }
+    const [reviews,setReviews]= useState([]);
+
+    useEffect(()=>{
+        fetch(`http://localhost:5000/reviews?id=${_id}`)
+        .then(res=>res.json()
+        .then(data=>{
+            setReviews(data);
+        }))
+    }
+        ,[_id])
     
     return (
         <div>
@@ -20,6 +71,13 @@ const ServiceDetails = () => {
                     </div>
                 </div>
             </div>
+            <div>
+                <textarea name="review" ref={ref} ></textarea>
+                <button onClick={handleAddReview}>AddReview</button>
+            </div>
+            <div className='grid grid-cols-1 md:grid-cols-3'> {
+                reviews.map(review => <Review key={review._id} review={review}></Review>)
+            }</div>
         </div>
     );
 };
