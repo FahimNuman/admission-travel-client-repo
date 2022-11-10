@@ -1,0 +1,53 @@
+@layerNum: 999;
+
+.viewer-close-btn {
+    position: absolute;
+    color: white;
+    font-size: 14px;
+    top: 20px;
+    right: 20px;
+    padding: 12px;
+    cursor: pointer;
+    z-index: @layerNum;
+}
+
+.thumb-img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-right: 5px;
+}
+
+.toolbox-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    z-index: @layerNum;
+
+    .toolbox-list {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        list-style: none;
+        background-color: #333;
+        margin: 0;
+        padding: 0 10px;
+
+        .tool-item {
+            margin: 0 6px;
+            color: white;
+            user-select: none;
+            cursor: pointer;
+        }
+    }
+}
+
+.PhotoView__PhotoWrap {
+    img {
+        user-select: none;
+    }
+}
