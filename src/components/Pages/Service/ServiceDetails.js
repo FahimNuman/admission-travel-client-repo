@@ -88,7 +88,7 @@ const ServiceDetails = () => {
 
                             :
                             <>
-                                <h2>Please Login for Review <Link to='/login' className="label-text-alt link link-hover">Login</Link></h2>
+                                <h2 >Please Login for Review <Link to='/login' className="btn btn-accent label-text-alt link link-hover">Login</Link></h2>
                             </>
 
 
@@ -99,7 +99,7 @@ const ServiceDetails = () => {
            
             <h2>All Reviews for this service</h2>
 
-            <h2>{reviews.length}</h2>
+            <h2 className='btn btn-accent'>{reviews.length}</h2>
             <div className='grid grid-cols-1 md:grid-cols-3 gap-4 my-16'>
                 {
                     reviews.map(review => <Review key={review._id} review={review}></Review>)
