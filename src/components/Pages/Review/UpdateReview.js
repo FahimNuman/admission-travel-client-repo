@@ -9,7 +9,7 @@ const UpdateReview = () => {
     const handleUpdateReview = event => {
         event.preventDefault();
         
-        fetch(`http://localhost:5000/reviews/${storedReview._id}`, {
+        fetch(`https://ass-elv-server.vercel.app/reviews/${storedReview._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

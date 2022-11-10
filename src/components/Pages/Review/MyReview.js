@@ -6,7 +6,7 @@ const MyReview = () => {
     const { user } = useContext(AuthContext);
     const [reviews, setreviews] = useState([])
     useEffect(() => {
-        fetch(`http://localhost:5000/myreviews?email=${user?.email}`)
+        fetch(`https://ass-elv-server.vercel.app/myreviews?email=${user?.email}`)
             .then(res => res.json())
             .then(data => setreviews(data))
     }, [user?.email])
@@ -14,7 +14,7 @@ const MyReview = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure, you want to cancel this order');
         if (proceed) {
-            fetch(`http://localhost:5000/reviews/${id}`, {
+            fetch(`https://ass-elv-server.vercel.app/reviews/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
@@ -29,7 +29,7 @@ const MyReview = () => {
         }
     }
     const handleStatusUpdate = id => {
-        fetch(`http://localhost:5000/reviews/${id}`, {
+        fetch(`https://ass-elv-server.vercel.app/reviews/${id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'

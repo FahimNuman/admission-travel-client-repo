@@ -29,20 +29,20 @@ const router = createBrowserRouter([
             {
                 path:'/service',
                 element:<Service></Service>,
-                loader: () => fetch(`http://localhost:5000/service`)
+                loader: () => fetch(`https://ass-elv-server.vercel.app/service`)
             }
             ,
             {
                 path:'/ServiceAll',
                 element:<ServiceAll></ServiceAll>,
-                loader: () => fetch(`http://localhost:5000/service`)
+                loader: () => fetch(`https://ass-elv-server.vercel.app/service`)
                 
             }
             ,
             {
                 path:'/ServiceDetails/:id',
                 element:<ServiceDetails></ServiceDetails>,
-                loader: ({params}) => fetch(`http://localhost:5000/service/${params.id}`)
+                loader: ({params}) => fetch(`https://ass-elv-server.vercel.app/service/${params.id}`)
                 
             }
             ,
@@ -76,7 +76,7 @@ const router = createBrowserRouter([
             {
                 path: '/updatereview/:id',
                 element: <UpdateReview></UpdateReview>,
-                loader: ({ params }) => fetch(`http://localhost:5000/reviews/${params.id}`)
+                loader: ({ params }) => fetch(`https://ass-elv-server.vercel.app/reviews/${params.id}`)
             },
             {
                 path:'/blog',

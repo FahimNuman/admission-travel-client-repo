@@ -3,6 +3,7 @@ import {useLoaderData } from 'react-router-dom';
 import ServiceDetailsCard from './ServiceDetailsCard';
 
 
+
 const ServiceAll = () => {
     const serviceAll = useLoaderData();
     console.log(serviceAll);

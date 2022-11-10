@@ -2,6 +2,8 @@ import React, { useContext, useEffect, useRef, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import  { AuthContext } from '../../Contexts/UseContext';
 import Review from '../Review/Review';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
+import 'react-photo-view/dist/react-photo-view.css';
 
 const ServiceDetails = () => {
     
@@ -25,7 +27,7 @@ const ServiceDetails = () => {
             review:review,
             serviceID: _id,
         };
-        fetch('http://localhost:5000/review', {
+        fetch('https://ass-elv-server.vercel.app/review', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -48,7 +50,7 @@ const ServiceDetails = () => {
     const [reviews,setReviews]= useState([]);
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/reviews?id=${_id}`)
+        fetch(`https://ass-elv-server.vercel.app/reviews?id=${_id}`)
         .then(res=>res.json()
         .then(data=>{
             setReviews(data);
@@ -60,7 +62,14 @@ const ServiceDetails = () => {
         <div>
             <div className="p-5 mx-auto sm:p-10 md:p-16 dark:bg-gray-800 dark:text-gray-100">
                 <div className="flex flex-col max-w-3xl mx-auto overflow-hidden rounded">
-                    <img src={serviceDetails.img} alt="" className="w-full h-60 sm:h-96 dark:bg-gray-500" />
+
+                    <PhotoProvider>
+                        <PhotoView src={serviceDetails.img}>
+                            <img src={serviceDetails.img} alt="" />
+                        </PhotoView>
+                    </PhotoProvider>
+
+                    {/* <img src={serviceDetails.img} alt="" className="w-full h-60 sm:h-96 dark:bg-gray-500" /> */}
                     <div className="p-6 pb-12 m-4 mx-auto -mt-16 space-y-6 lg:max-w-2xl sm:px-10 sm:mx-12 lg:rounded-md dark:bg-gray-900">
                         <div className="space-y-2">
                             <Link rel="noopener noreferrer" href="#" className="inline-block text-black text-2xl font-semibold sm:text-3xl">{serviceDetails.title}</Link>
