@@ -59,7 +59,7 @@ const Header = () =>
                                 <li><Link>All Service</Link></li>
                             </ul>
                         </li>
-                        <li><Link>Blog</Link></li>
+                        <li><Link to="/blog">Blog</Link></li>
                         
                     </ul>
                 </div>
