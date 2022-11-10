@@ -11,6 +11,7 @@ const ServiceDetails = () => {
     const serviceDetails = useLoaderData();
     const {_id}=serviceDetails;
     console.log(_id);
+
     const handleAddReview = event =>{
         const review = ref.current.value;
         const email=user?.email || 'undefind';
@@ -72,12 +73,38 @@ const ServiceDetails = () => {
                 </div>
             </div>
             <div>
-                <textarea name="review" ref={ref} ></textarea>
-                <button onClick={handleAddReview}>AddReview</button>
+                <div className="form-control mt-6">
+                    <h2>Here Reviews</h2>
+                    {
+                        user?.email ?
+
+                            <div>
+                                <label htmlFor="message">My Textarea</label>
+                                <textarea className="textarea textarea-primary block" ref={ref} id="message" name="message" />
+
+                                <button className="btn btn-active btn-primary mt-3" onClick={handleAddReview}>Click</button>
+                            </div>
+
+
+                            :
+                            <>
+                                <h2>Please Login for Review <Link to='/login' className="label-text-alt link link-hover">Login</Link></h2>
+                            </>
+
+
+                    }
+                </div>
+                {/* <button onClick={handleAddReview}>AddReview</button> */}
             </div>
-            <div className='grid grid-cols-1 md:grid-cols-3'> {
-                reviews.map(review => <Review key={review._id} review={review}></Review>)
-            }</div>
+           
+            <h2>All Reviews for this service</h2>
+
+            <h2>{reviews.length}</h2>
+            <div className='grid grid-cols-1 md:grid-cols-3 gap-4 my-16'>
+                {
+                    reviews.map(review => <Review key={review._id} review={review}></Review>)
+                }
+            </div>
         </div>
     );
 };

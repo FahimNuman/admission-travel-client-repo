@@ -32,8 +32,8 @@ const AddService = () => {
     
     return (
         <div  className='my-20 py-20'>
+            <div className='text-center'>Add Your Service</div>
             <form onSubmit={handleAddService}>
-                
                 <div className='grid grid-cols-1 lg:grid-cols-1 gap-4'>
                     <input name="title" type="text" placeholder="Service Name" className="input input-ghost w-full  input-bordered" />
                     <input name="price" type="text" placeholder="price" className="input input-ghost w-full  input-bordered" />

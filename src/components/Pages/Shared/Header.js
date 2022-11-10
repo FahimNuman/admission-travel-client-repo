@@ -67,7 +67,7 @@ const Header = () =>
                 <div>{user?.email && <span>{user.email}</span>}
                     {
                         user?.email ?
-                            <> <button className='bg-primary'><Link to="/AddService">Add Service</Link></button>
+                            <> <button ><Link to="/AddService">Add Service</Link></button><button ><Link to="/myReview">My Review</Link></button>
                                 <button onClick={handleSignOut} className="btn btn-sm">Log out</button></>
                        
                             : <Link to='/login'>

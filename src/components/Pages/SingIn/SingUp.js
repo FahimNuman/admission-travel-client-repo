@@ -19,7 +19,7 @@ const SingUp = () => {
             .then(result => {
                 const user = result.user;
                 console.log('registered user', user);
-                navigate('/');
+                navigate('/home');
             })
             .catch(error => {
                 console.error(error)
