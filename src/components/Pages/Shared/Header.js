@@ -48,18 +48,9 @@ const Header = () =>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal p-0">
-                        <li><Link>Home</Link></li>
-                        <li tabIndex={0}>
-                            <Link>
-                                Service
-                                <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" /></svg>
-                            </Link>
-                            <ul className="p-2 bg-warning">
-                                <li><Link>Review Service</Link></li>
-                                <li><Link>All Service</Link></li>
-                            </ul>
-                        </li>
+                        
                         <li><Link to="/blog">Blog</Link></li>
+                        <li><Link to="/serviceAll">ServiceAll</Link></li>
                         
                     </ul>
                 </div>

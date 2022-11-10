@@ -11,7 +11,7 @@ const ServiceCard = ({service}) => {
                           <h3 className="text-2xl font-semibold group-hover:underline group-focus:underline">{price}</h3>
                              <span className="text-xs dark:text-gray-400">{title}</span>
                     <p>{description.length > 200 ?
-                        <p>{description.slice(0, 250) + '.....'}<Link to={`/ServiceDetails/${_id}`}>Readmore</Link></p>
+                        <p>{description.slice(0, 250) + '.....'}<Link to={`/ServiceDetails/${_id}`}>Readmore..</Link></p>
 
                         : description
 

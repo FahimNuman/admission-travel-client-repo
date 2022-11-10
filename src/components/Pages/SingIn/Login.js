@@ -5,7 +5,7 @@ import { AuthContext } from '../../Contexts/UseContext';
 
 const Login = () => {
 
-    const { signIn } = useContext(AuthContext);
+    const { signIn, signInWithGoogle } = useContext(AuthContext);
     const navigate = useNavigate()
 
     const handleSubmit = event => {
@@ -24,6 +24,15 @@ const Login = () => {
             })
             .catch(error => console.error(error))
 
+    }
+    const handleGoogleSignIn = () => {
+        signInWithGoogle()
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                navigate('/serviceAll');
+            })
+            .catch(error => console.error(error));
     }
     return (
         <div>
@@ -52,6 +61,7 @@ const Login = () => {
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary">Login</button>
                             </div>
+                            <button onClick={handleGoogleSignIn} className="btn btn-outline btn-success">Google</button>
                         </form>
                     </div>
                 </div>

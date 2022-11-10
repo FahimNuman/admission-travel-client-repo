@@ -19,7 +19,7 @@ const SingUp = () => {
             .then(result => {
                 const user = result.user;
                 console.log('registered user', user);
-                navigate('/home');
+                navigate('/');
             })
             .catch(error => {
                 console.error(error)
@@ -32,6 +32,7 @@ const SingUp = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                navigate('/');
             })
             .catch(error => console.error(error));
     }
