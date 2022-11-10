@@ -7,3 +7,6 @@
 7.set routs,provider
 8.set firebase file create firebase 
 9.set firebase env 
+10.use versel to host 
+11.implement firebase auth
+
