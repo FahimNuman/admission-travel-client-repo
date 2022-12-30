@@ -9,4 +9,5 @@
 9.set firebase env 
 10.use versel to host 
 11.implement firebase auth
+12.Use daisy ui
 
